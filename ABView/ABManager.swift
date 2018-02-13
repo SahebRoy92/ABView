@@ -2,7 +2,7 @@
 //  Loader.swift
 //  AnimatedBackground
 //
-//  Created by Administrator on 13/02/18.
+//  Created by Saheb Roy on 13/02/18.
 //  Copyright © 2018 Order of the Light. All rights reserved.
 //
 
@@ -12,11 +12,10 @@ import Foundation
 public class ABView{
     
     public init() {}
-    
-    public let view = Bundle.main.loadNibNamed("BackgroundView", owner: nil, options: nil)?.first as! UIView
-    
+    public let view = Bundle(for: ABView.self).loadNibNamed("BackgroundView", owner: nil, options: nil)?.first as! UIView
     
     public func loadBackgroundNib(inView v : UIView){
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.alpha = 0
         v.addSubview(view)
@@ -45,3 +44,4 @@ public class ABView{
         view.layer.removeAllAnimations()
     }
 }
+
